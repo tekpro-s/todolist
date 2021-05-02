@@ -35,7 +35,7 @@ export default {
   methods: {
     async getTodo() {
       const resData = await axios.get(
-        "https://agile-brushlands-69783.herokuapp.com/api/todos/"
+        "https://agile-brushlands-69783.herokuapp.com/api/todos"
       );
       console.log(resData);
       this.todoLists = resData.data.data;
@@ -46,7 +46,7 @@ export default {
         todo: this.newTodo,
       };
       await axios.post(
-        "https://agile-brushlands-69783.herokuapp.com/api/todos/",
+        "https://agile-brushlands-69783.herokuapp.com/api/todos",
         sendData
       );
       await this.getTodo();
