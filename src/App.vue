@@ -34,7 +34,9 @@ export default {
   },
   methods: {
     async getTodo() {
-      const resData = await axios.get("http://127.0.0.1:8000/api/todos/");
+      const resData = await axios.get(
+        "https://agile-brushlands-69783.herokuapp.com/api/todos/"
+      );
       console.log(resData);
       this.todoLists = resData.data.data;
       console.log(this.todoLists);
@@ -43,18 +45,26 @@ export default {
       const sendData = {
         todo: this.newTodo,
       };
-      await axios.post("http://127.0.0.1:8000/api/todos/", sendData);
+      await axios.post(
+        "https://agile-brushlands-69783.herokuapp.com/api/todos/",
+        sendData
+      );
       await this.getTodo();
     },
     async updateTodo(id, todo) {
       const sendData = {
         todo: todo,
       };
-      await axios.put("http://127.0.0.1:8000/api/todos/" + id, sendData);
+      await axios.put(
+        "https://agile-brushlands-69783.herokuapp.com/api/todos/" + id,
+        sendData
+      );
       await this.getTodo();
     },
     async deleteTodo(id) {
-      await axios.delete("http://127.0.0.1:8000/api/todos/" + id);
+      await axios.delete(
+        "https://agile-brushlands-69783.herokuapp.com/api/todos/" + id
+      );
       await this.getTodo();
     },
   },
@@ -65,6 +75,7 @@ export default {
 </script>
 
 <style>
+/* リセットCSS */
 html,
 body,
 div,
@@ -239,6 +250,7 @@ html {
   font-family: "Noto Sans JP";
 }
 
+/* TodoList画面CSS */
 html {
   background-color: #2d197c;
 }
